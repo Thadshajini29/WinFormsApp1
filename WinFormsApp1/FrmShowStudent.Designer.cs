@@ -34,6 +34,9 @@
             lbl_address = new Label();
             lbl_lastname = new Label();
             lbl_firstname = new Label();
+            rdoFemale = new RadioButton();
+            rdoMale = new RadioButton();
+            lblgender = new Label();
             SuspendLayout();
             // 
             // txt_address
@@ -84,11 +87,45 @@
             lbl_firstname.TabIndex = 8;
             lbl_firstname.Text = "First Name";
             // 
+            // rdoFemale
+            // 
+            rdoFemale.AutoSize = true;
+            rdoFemale.Location = new Point(272, 173);
+            rdoFemale.Name = "rdoFemale";
+            rdoFemale.Size = new Size(93, 29);
+            rdoFemale.TabIndex = 14;
+            rdoFemale.TabStop = true;
+            rdoFemale.Text = "Female";
+            rdoFemale.UseVisualStyleBackColor = true;
+            // 
+            // rdoMale
+            // 
+            rdoMale.AutoSize = true;
+            rdoMale.Location = new Point(171, 173);
+            rdoMale.Name = "rdoMale";
+            rdoMale.Size = new Size(75, 29);
+            rdoMale.TabIndex = 13;
+            rdoMale.TabStop = true;
+            rdoMale.Text = "Male";
+            rdoMale.UseVisualStyleBackColor = true;
+            // 
+            // lblgender
+            // 
+            lblgender.AutoSize = true;
+            lblgender.Location = new Point(39, 177);
+            lblgender.Name = "lblgender";
+            lblgender.Size = new Size(69, 25);
+            lblgender.TabIndex = 12;
+            lblgender.Text = "Gender";
+            // 
             // FrmShowStudent
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(395, 208);
+            ClientSize = new Size(431, 330);
+            Controls.Add(rdoFemale);
+            Controls.Add(rdoMale);
+            Controls.Add(lblgender);
             Controls.Add(txt_address);
             Controls.Add(txt_lname);
             Controls.Add(txt_fname);
@@ -97,6 +134,7 @@
             Controls.Add(lbl_firstname);
             Name = "FrmShowStudent";
             Text = "FrmShowStudent";
+            Load += FrmShowStudent_Load;
             ResumeLayout(false);
             PerformLayout();
         }
@@ -109,5 +147,8 @@
         private Label lbl_address;
         private Label lbl_lastname;
         private Label lbl_firstname;
+        private RadioButton rdoFemale;
+        private RadioButton rdoMale;
+        private Label lblgender;
     }
 }
