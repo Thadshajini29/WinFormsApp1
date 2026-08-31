@@ -39,9 +39,17 @@ namespace WinFormsApp1
             //----------------Use SelectedIndex to combo box and assign to another combo box-----------------
             string selectSubject = cmb_subject.SelectedIndex.ToString();
 
-            cmb_selectedsubject.SelectedIndex = int.Parse(selectSubject);
+            if (cmb_subject.SelectedIndex != -1)
+            {
+                cmb_selectedsubject.SelectedIndex = int.Parse(selectSubject);
+                MessageBox.Show(cmb_subject.SelectedIndex.ToString());
+            }
+            else
+            {
+                MessageBox.Show("Please select a subject from the list.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
 
-            MessageBox.Show(cmb_subject.SelectedIndex.ToString());
+           
 
         }
 
