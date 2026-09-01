@@ -47,6 +47,19 @@
             rdoMale = new RadioButton();
             rdoFemale = new RadioButton();
             btngender = new Button();
+            btn_dbshow = new Button();
+            cmb_medium = new ComboBox();
+            cmb_familyid = new ComboBox();
+            cmbhouse = new ComboBox();
+            lbl_addmission = new Label();
+            txtaddmission = new TextBox();
+            txt_phone = new TextBox();
+            txt_nic = new TextBox();
+            lbl_familyid = new Label();
+            lblmedium = new Label();
+            lbl_house = new Label();
+            lbl_phone = new Label();
+            lblnic = new Label();
             ((System.ComponentModel.ISupportInitialize)dgvStudents).BeginInit();
             SuspendLayout();
             // 
@@ -63,10 +76,10 @@
             // dgvStudents
             // 
             dgvStudents.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvStudents.Location = new Point(12, 125);
+            dgvStudents.Location = new Point(12, 112);
             dgvStudents.Name = "dgvStudents";
             dgvStudents.RowHeadersWidth = 62;
-            dgvStudents.Size = new Size(661, 480);
+            dgvStudents.Size = new Size(661, 533);
             dgvStudents.TabIndex = 1;
             // 
             // btn_AllStudents
@@ -187,11 +200,12 @@
             // lblgender
             // 
             lblgender.AutoSize = true;
-            lblgender.Location = new Point(705, 413);
+            lblgender.Location = new Point(713, 415);
             lblgender.Name = "lblgender";
             lblgender.Size = new Size(69, 25);
             lblgender.TabIndex = 4;
             lblgender.Text = "Gender";
+            lblgender.Click += lblgender_Click;
             // 
             // rdoMale
             // 
@@ -207,7 +221,7 @@
             // rdoFemale
             // 
             rdoFemale.AutoSize = true;
-            rdoFemale.Location = new Point(907, 411);
+            rdoFemale.Location = new Point(943, 413);
             rdoFemale.Name = "rdoFemale";
             rdoFemale.Size = new Size(93, 29);
             rdoFemale.TabIndex = 8;
@@ -225,11 +239,133 @@
             btngender.UseVisualStyleBackColor = true;
             btngender.Click += btngender_Click;
             // 
+            // btn_dbshow
+            // 
+            btn_dbshow.Location = new Point(826, 29);
+            btn_dbshow.Name = "btn_dbshow";
+            btn_dbshow.Size = new Size(132, 56);
+            btn_dbshow.TabIndex = 3;
+            btn_dbshow.Text = "DB-Show";
+            btn_dbshow.UseVisualStyleBackColor = true;
+            btn_dbshow.Click += btn_dbshow_Click;
+            // 
+            // cmb_medium
+            // 
+            cmb_medium.FormattingEnabled = true;
+            cmb_medium.Items.AddRange(new object[] { "Tamil", "English" });
+            cmb_medium.Location = new Point(927, 624);
+            cmb_medium.Name = "cmb_medium";
+            cmb_medium.Size = new Size(182, 33);
+            cmb_medium.TabIndex = 57;
+            // 
+            // cmb_familyid
+            // 
+            cmb_familyid.FormattingEnabled = true;
+            cmb_familyid.Location = new Point(930, 679);
+            cmb_familyid.Name = "cmb_familyid";
+            cmb_familyid.Size = new Size(182, 33);
+            cmb_familyid.TabIndex = 56;
+            // 
+            // cmbhouse
+            // 
+            cmbhouse.FormattingEnabled = true;
+            cmbhouse.Location = new Point(927, 565);
+            cmbhouse.Name = "cmbhouse";
+            cmbhouse.Size = new Size(182, 33);
+            cmbhouse.TabIndex = 55;
+            // 
+            // lbl_addmission
+            // 
+            lbl_addmission.AutoSize = true;
+            lbl_addmission.Location = new Point(729, 744);
+            lbl_addmission.Name = "lbl_addmission";
+            lbl_addmission.Size = new Size(177, 25);
+            lbl_addmission.TabIndex = 54;
+            lbl_addmission.Text = "Addmission Number";
+            // 
+            // txtaddmission
+            // 
+            txtaddmission.Location = new Point(930, 744);
+            txtaddmission.Name = "txtaddmission";
+            txtaddmission.Size = new Size(193, 31);
+            txtaddmission.TabIndex = 51;
+            // 
+            // txt_phone
+            // 
+            txt_phone.Location = new Point(916, 512);
+            txt_phone.Name = "txt_phone";
+            txt_phone.Size = new Size(193, 31);
+            txt_phone.TabIndex = 52;
+            // 
+            // txt_nic
+            // 
+            txt_nic.Location = new Point(907, 448);
+            txt_nic.Name = "txt_nic";
+            txt_nic.Size = new Size(193, 31);
+            txt_nic.TabIndex = 53;
+            // 
+            // lbl_familyid
+            // 
+            lbl_familyid.AutoSize = true;
+            lbl_familyid.Location = new Point(729, 687);
+            lbl_familyid.Name = "lbl_familyid";
+            lbl_familyid.Size = new Size(83, 25);
+            lbl_familyid.TabIndex = 49;
+            lbl_familyid.Text = "Family Id";
+            // 
+            // lblmedium
+            // 
+            lblmedium.AutoSize = true;
+            lblmedium.Location = new Point(729, 632);
+            lblmedium.Name = "lblmedium";
+            lblmedium.Size = new Size(78, 25);
+            lblmedium.TabIndex = 48;
+            lblmedium.Text = "Medium";
+            // 
+            // lbl_house
+            // 
+            lbl_house.AutoSize = true;
+            lbl_house.Location = new Point(724, 573);
+            lbl_house.Name = "lbl_house";
+            lbl_house.Size = new Size(83, 25);
+            lbl_house.TabIndex = 47;
+            lbl_house.Text = "House id";
+            // 
+            // lbl_phone
+            // 
+            lbl_phone.AutoSize = true;
+            lbl_phone.Location = new Point(704, 518);
+            lbl_phone.Name = "lbl_phone";
+            lbl_phone.Size = new Size(132, 25);
+            lbl_phone.TabIndex = 46;
+            lbl_phone.Text = "Phone Number";
+            // 
+            // lblnic
+            // 
+            lblnic.AutoSize = true;
+            lblnic.Location = new Point(705, 454);
+            lblnic.Name = "lblnic";
+            lblnic.Size = new Size(107, 25);
+            lblnic.TabIndex = 50;
+            lblnic.Text = "Nic Number";
+            // 
             // Frm_connect
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1114, 634);
+            ClientSize = new Size(1175, 854);
+            Controls.Add(cmb_medium);
+            Controls.Add(cmb_familyid);
+            Controls.Add(cmbhouse);
+            Controls.Add(lbl_addmission);
+            Controls.Add(txtaddmission);
+            Controls.Add(txt_phone);
+            Controls.Add(txt_nic);
+            Controls.Add(lbl_familyid);
+            Controls.Add(lblmedium);
+            Controls.Add(lbl_house);
+            Controls.Add(lbl_phone);
+            Controls.Add(lblnic);
             Controls.Add(rdoFemale);
             Controls.Add(rdoMale);
             Controls.Add(btn_button2);
@@ -244,6 +380,7 @@
             Controls.Add(lbl_lastname);
             Controls.Add(lbl_firstname);
             Controls.Add(btngender);
+            Controls.Add(btn_dbshow);
             Controls.Add(btngrade);
             Controls.Add(btn_show);
             Controls.Add(btn_AllStudents);
@@ -277,5 +414,18 @@
         private RadioButton rdoMale;
         private RadioButton rdoFemale;
         private Button btngender;
+        private Button btn_dbshow;
+        private ComboBox cmb_medium;
+        private ComboBox cmb_familyid;
+        private ComboBox cmbhouse;
+        private Label lbl_addmission;
+        private TextBox txtaddmission;
+        private TextBox txt_phone;
+        private TextBox txt_nic;
+        private Label lbl_familyid;
+        private Label lblmedium;
+        private Label lbl_house;
+        private Label lbl_phone;
+        private Label lblnic;
     }
 }
