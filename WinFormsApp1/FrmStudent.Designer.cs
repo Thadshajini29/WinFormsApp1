@@ -56,6 +56,7 @@
             lbl_information = new Label();
             lbl_error = new Label();
             timer1 = new System.Windows.Forms.Timer(components);
+            btn_Back = new Button();
             SuspendLayout();
             // 
             // lbl_firstname
@@ -255,7 +256,7 @@
             btn_filldata.BackColor = Color.FromArgb(25, 118, 210);
             btn_filldata.Font = new Font("Segoe UI Emoji", 14F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btn_filldata.ForeColor = Color.White;
-            btn_filldata.Location = new Point(275, 486);
+            btn_filldata.Location = new Point(132, 465);
             btn_filldata.Name = "btn_filldata";
             btn_filldata.Size = new Size(176, 43);
             btn_filldata.TabIndex = 5;
@@ -291,6 +292,19 @@
             timer1.Interval = 3000;
             timer1.Tick += timer1_Tick_1;
             // 
+            // btn_Back
+            // 
+            btn_Back.BackColor = Color.FromArgb(25, 118, 210);
+            btn_Back.Font = new Font("Segoe UI Emoji", 14F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btn_Back.ForeColor = Color.White;
+            btn_Back.Location = new Point(370, 465);
+            btn_Back.Name = "btn_Back";
+            btn_Back.Size = new Size(237, 43);
+            btn_Back.TabIndex = 5;
+            btn_Back.Text = "Back to Master";
+            btn_Back.UseVisualStyleBackColor = false;
+            btn_Back.Click += btn_Back_Click;
+            // 
             // FrmStudent
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
@@ -298,6 +312,7 @@
             BackColor = Color.FromArgb(245, 247, 250);
             ClientSize = new Size(646, 541);
             Controls.Add(lbl_error);
+            Controls.Add(btn_Back);
             Controls.Add(btn_filldata);
             Controls.Add(btn_femalee);
             Controls.Add(btn_female);
@@ -359,5 +374,6 @@
         private Label lbl_information;
         private Label lbl_error;
         private System.Windows.Forms.Timer timer1;
+        private Button btn_Back;
     }
 }

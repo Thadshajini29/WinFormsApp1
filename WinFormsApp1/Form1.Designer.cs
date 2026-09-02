@@ -40,6 +40,7 @@
             label2 = new Label();
             lblfullname = new Label();
             timer1 = new System.Windows.Forms.Timer(components);
+            btn_Back = new Button();
             SuspendLayout();
             // 
             // lbl_firstname
@@ -135,6 +136,18 @@
             lblfullname.TabIndex = 3;
             lblfullname.Text = "----";
             // 
+            // btn_Back
+            // 
+            btn_Back.BackColor = SystemColors.ButtonShadow;
+            btn_Back.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btn_Back.Location = new Point(283, 356);
+            btn_Back.Name = "btn_Back";
+            btn_Back.Size = new Size(223, 48);
+            btn_Back.TabIndex = 2;
+            btn_Back.Text = "Back to Master";
+            btn_Back.UseVisualStyleBackColor = false;
+            btn_Back.Click += btn_Back_Click;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
@@ -142,6 +155,7 @@
             BackColor = SystemColors.ControlLight;
             ClientSize = new Size(532, 436);
             Controls.Add(lblfullname);
+            Controls.Add(btn_Back);
             Controls.Add(btn_save);
             Controls.Add(txt_fullname);
             Controls.Add(txt_lastname);
@@ -172,5 +186,6 @@
         private Label label2;
         private Label lblfullname;
         private System.Windows.Forms.Timer timer1;
+        private Button btn_Back;
     }
 }

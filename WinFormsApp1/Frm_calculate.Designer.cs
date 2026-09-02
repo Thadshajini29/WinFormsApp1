@@ -41,6 +41,7 @@
             txt_results = new TextBox();
             lbl_error = new Label();
             timer1 = new System.Windows.Forms.Timer(components);
+            btn_back = new Button();
             SuspendLayout();
             // 
             // lbl_number1
@@ -145,11 +146,22 @@
             timer1.Interval = 3000;
             timer1.Tick += timer1_Tick;
             // 
+            // btn_back
+            // 
+            btn_back.Location = new Point(280, 397);
+            btn_back.Name = "btn_back";
+            btn_back.Size = new Size(162, 34);
+            btn_back.TabIndex = 4;
+            btn_back.Text = "Back to Master";
+            btn_back.UseVisualStyleBackColor = true;
+            btn_back.Click += btn_back_Click;
+            // 
             // Frm_calculate
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(489, 450);
+            Controls.Add(btn_back);
             Controls.Add(btn_addition);
             Controls.Add(btn_subtraction);
             Controls.Add(btn_division);
@@ -181,5 +193,6 @@
         private TextBox txt_results;
         private Label lbl_error;
         private System.Windows.Forms.Timer timer1;
+        private Button btn_back;
     }
 }

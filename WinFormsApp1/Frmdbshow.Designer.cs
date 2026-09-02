@@ -53,13 +53,14 @@
             lbl_lastname = new Label();
             lblnic = new Label();
             lbl_firstname = new Label();
+            btn_cancel = new Button();
             SuspendLayout();
             // 
             // cmb_medium
             // 
             cmb_medium.FormattingEnabled = true;
             cmb_medium.Items.AddRange(new object[] { "Tamil", "English" });
-            cmb_medium.Location = new Point(671, 200);
+            cmb_medium.Location = new Point(629, 202);
             cmb_medium.Name = "cmb_medium";
             cmb_medium.Size = new Size(196, 33);
             cmb_medium.TabIndex = 45;
@@ -67,7 +68,7 @@
             // cmb_familyid
             // 
             cmb_familyid.FormattingEnabled = true;
-            cmb_familyid.Location = new Point(671, 255);
+            cmb_familyid.Location = new Point(629, 258);
             cmb_familyid.Name = "cmb_familyid";
             cmb_familyid.Size = new Size(196, 33);
             cmb_familyid.TabIndex = 44;
@@ -75,7 +76,7 @@
             // cmbhouse
             // 
             cmbhouse.FormattingEnabled = true;
-            cmbhouse.Location = new Point(671, 136);
+            cmbhouse.Location = new Point(632, 147);
             cmbhouse.Name = "cmbhouse";
             cmbhouse.Size = new Size(193, 33);
             cmbhouse.TabIndex = 43;
@@ -99,7 +100,7 @@
             // lbl_addmission
             // 
             lbl_addmission.AutoSize = true;
-            lbl_addmission.Location = new Point(459, 319);
+            lbl_addmission.Location = new Point(414, 319);
             lbl_addmission.Name = "lbl_addmission";
             lbl_addmission.Size = new Size(177, 25);
             lbl_addmission.TabIndex = 40;
@@ -156,7 +157,7 @@
             // 
             // txtaddmission
             // 
-            txtaddmission.Location = new Point(674, 313);
+            txtaddmission.Location = new Point(632, 316);
             txtaddmission.Name = "txtaddmission";
             txtaddmission.Size = new Size(193, 31);
             txtaddmission.TabIndex = 29;
@@ -177,14 +178,14 @@
             // 
             // txt_phone
             // 
-            txt_phone.Location = new Point(671, 88);
+            txt_phone.Location = new Point(632, 94);
             txt_phone.Name = "txt_phone";
             txt_phone.Size = new Size(193, 31);
             txt_phone.TabIndex = 32;
             // 
             // txt_nic
             // 
-            txt_nic.Location = new Point(671, 40);
+            txt_nic.Location = new Point(632, 46);
             txt_nic.Name = "txt_nic";
             txt_nic.Size = new Size(193, 31);
             txt_nic.TabIndex = 33;
@@ -208,7 +209,7 @@
             // lbl_familyid
             // 
             lbl_familyid.AutoSize = true;
-            lbl_familyid.Location = new Point(460, 263);
+            lbl_familyid.Location = new Point(414, 258);
             lbl_familyid.Name = "lbl_familyid";
             lbl_familyid.Size = new Size(83, 25);
             lbl_familyid.TabIndex = 26;
@@ -218,7 +219,7 @@
             // lblmedium
             // 
             lblmedium.AutoSize = true;
-            lblmedium.Location = new Point(459, 208);
+            lblmedium.Location = new Point(419, 210);
             lblmedium.Name = "lblmedium";
             lblmedium.Size = new Size(78, 25);
             lblmedium.TabIndex = 25;
@@ -227,7 +228,7 @@
             // lbl_house
             // 
             lbl_house.AutoSize = true;
-            lbl_house.Location = new Point(459, 155);
+            lbl_house.Location = new Point(419, 155);
             lbl_house.Name = "lbl_house";
             lbl_house.Size = new Size(83, 25);
             lbl_house.TabIndex = 24;
@@ -236,7 +237,7 @@
             // lbl_phone
             // 
             lbl_phone.AutoSize = true;
-            lbl_phone.Location = new Point(459, 94);
+            lbl_phone.Location = new Point(419, 97);
             lbl_phone.Name = "lbl_phone";
             lbl_phone.Size = new Size(132, 25);
             lbl_phone.TabIndex = 23;
@@ -254,7 +255,7 @@
             // lblnic
             // 
             lblnic.AutoSize = true;
-            lblnic.Location = new Point(460, 43);
+            lblnic.Location = new Point(419, 46);
             lblnic.Name = "lblnic";
             lblnic.Size = new Size(107, 25);
             lblnic.TabIndex = 28;
@@ -269,11 +270,22 @@
             lbl_firstname.TabIndex = 27;
             lbl_firstname.Text = "First Name";
             // 
+            // btn_cancel
+            // 
+            btn_cancel.Location = new Point(520, 371);
+            btn_cancel.Name = "btn_cancel";
+            btn_cancel.Size = new Size(138, 65);
+            btn_cancel.TabIndex = 46;
+            btn_cancel.Text = "cancel";
+            btn_cancel.UseVisualStyleBackColor = true;
+            btn_cancel.Click += btn_cancel_Click;
+            // 
             // Frmdbshow
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(904, 397);
+            ClientSize = new Size(854, 448);
+            Controls.Add(btn_cancel);
             Controls.Add(cmb_medium);
             Controls.Add(cmb_familyid);
             Controls.Add(cmbhouse);
@@ -333,5 +345,6 @@
         private Label lbl_lastname;
         private Label lblnic;
         private Label lbl_firstname;
+        private Button btn_cancel;
     }
 }

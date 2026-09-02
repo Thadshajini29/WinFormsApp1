@@ -54,6 +54,7 @@
             cmb_familyid = new ComboBox();
             cmb_medium = new ComboBox();
             lbl_studentinformation = new Label();
+            btn_done = new Button();
             SuspendLayout();
             // 
             // txt_address
@@ -292,11 +293,22 @@
             lbl_studentinformation.Text = "Student Information Page";
             lbl_studentinformation.TextAlign = ContentAlignment.TopCenter;
             // 
+            // btn_done
+            // 
+            btn_done.Location = new Point(420, 495);
+            btn_done.Name = "btn_done";
+            btn_done.Size = new Size(150, 53);
+            btn_done.TabIndex = 22;
+            btn_done.Text = "Cancel";
+            btn_done.UseVisualStyleBackColor = true;
+            btn_done.Click += btn_done_Click;
+            // 
             // FrmShowStudent
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(921, 503);
+            ClientSize = new Size(921, 560);
+            Controls.Add(btn_done);
             Controls.Add(lbl_studentinformation);
             Controls.Add(cmb_medium);
             Controls.Add(cmb_familyid);
@@ -358,5 +370,6 @@
         private ComboBox cmb_familyid;
         private ComboBox cmb_medium;
         private Label lbl_studentinformation;
+        private Button btn_done;
     }
 }

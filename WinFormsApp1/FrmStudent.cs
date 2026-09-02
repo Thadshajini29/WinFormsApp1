@@ -151,5 +151,13 @@ namespace WinFormsApp1
         {
 
         }
+
+        private void btn_Back_Click(object sender, EventArgs e)
+        {
+            Frmmaster frmmaster = new Frmmaster();
+            frmmaster.Show();
+
+            this.Close();
+        }
     }
 }

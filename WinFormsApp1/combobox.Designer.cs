@@ -32,6 +32,7 @@
             btn_submit = new Button();
             lst_subject = new ListBox();
             cmb_selectedsubject = new ComboBox();
+            btn_Back = new Button();
             SuspendLayout();
             // 
             // cmb_subject
@@ -71,11 +72,22 @@
             cmb_selectedsubject.Size = new Size(182, 33);
             cmb_selectedsubject.TabIndex = 0;
             // 
+            // btn_Back
+            // 
+            btn_Back.Location = new Point(486, 358);
+            btn_Back.Name = "btn_Back";
+            btn_Back.Size = new Size(193, 34);
+            btn_Back.TabIndex = 3;
+            btn_Back.Text = "Back to Master";
+            btn_Back.UseVisualStyleBackColor = true;
+            btn_Back.Click += btn_Back_Click;
+            // 
             // Frm_combobox
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
+            Controls.Add(btn_Back);
             Controls.Add(lst_subject);
             Controls.Add(btn_submit);
             Controls.Add(cmb_selectedsubject);
@@ -91,5 +103,6 @@
         private Button btn_submit;
         private ListBox lst_subject;
         private ComboBox cmb_selectedsubject;
+        private Button btn_Back;
     }
 }

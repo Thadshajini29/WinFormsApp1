@@ -112,5 +112,10 @@ namespace WinFormsApp1
         {
 
         }
+
+        private void btn_done_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

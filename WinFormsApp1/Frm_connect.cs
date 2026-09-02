@@ -66,127 +66,114 @@ namespace WinFormsApp1
 
         private void btn_show_Click(object sender, EventArgs e)
         {
-           // ------------------Code to display student details in a new form.------------------
+            if (dgvStudents.CurrentRow == null || !dgvStudents.Columns.Contains("id"))
+            {
+                MessageBox.Show("Please select a student from the table first.");
+                return;
+            }
             try
             {
-                string firstname = dgvStudents.CurrentRow.Cells["first_name"].Value.ToString();
-                string lastname = dgvStudents.CurrentRow.Cells["last_name"].Value.ToString();
-                string address = dgvStudents.CurrentRow.Cells["per_address"].Value.ToString();
-
-                string gender = dgvStudents.CurrentRow.Cells["gender"].Value.ToString();
-
-                if (gender == "M")
+                object idValue = dgvStudents.CurrentRow.Cells["id"].Value;
+                string studentId = idValue == null || idValue == DBNull.Value ? "" : idValue.ToString() ?? "";
+                if (string.IsNullOrEmpty(studentId))
                 {
-                    rdoMale.Checked = true;
-                }
-                else if (gender == "F")
-                {
-                    rdoFemale.Checked = true;
+                    MessageBox.Show("Please select a valid student.");
+                    return;
                 }
 
+                string connectionString = "Server=localhost;Database=school;Uid=root;Pwd=root;";
+                MySqlConnection conn = new MySqlConnection(connectionString);
+                conn.Open();
 
-                string grade = "N/A";
+                string query = "SELECT s.*, g.grade_name, h.house_name " +
+                               "FROM students s " +
+                               "LEFT JOIN grades g ON s.grade_id = g.id " +
+                               "LEFT JOIN houses h ON s.house_id = h.id " +
+                               "WHERE s.id = @id";
+                MySqlCommand cmd = new MySqlCommand(query, conn);
+                cmd.Parameters.AddWithValue("@id", studentId);
+                MySqlDataAdapter da = new MySqlDataAdapter(cmd);
+                DataTable dt = new DataTable();
+                da.Fill(dt);
+                conn.Close();
 
-                string gradeId =
-                    dgvStudents.CurrentRow.Cells["grade_id"].Value.ToString();
-
-                if (!string.IsNullOrEmpty(gradeId))
+                if (dt.Rows.Count == 0)
                 {
-                    cmb_grade.SelectedValue = gradeId;
-                    grade = cmb_grade.Text;
+                    MessageBox.Show("Data Not Found.");
+                    return;
                 }
 
+                DataRow dr = dt.Rows[0];
+                string firstname = dr["first_name"] == DBNull.Value ? "" :
+                    dr["first_name"].ToString() ?? "";
+                string lastname = dr["last_name"] == DBNull.Value ? "" :
+                    dr["last_name"].ToString() ?? "";
+                string address = dr["per_address"] == DBNull.Value ? "" :
+                    dr["per_address"].ToString() ?? "";
+                string gender = dr["gender"] == DBNull.Value ? "" : 
+                    dr["gender"].ToString() ?? "";
+                string grade = dr["grade_name"] == DBNull.Value ? "N/A" :
+                    dr["grade_name"].ToString() ?? "N/A";
+                string medium = dr["medium"] == DBNull.Value ? "N/A" : 
+                    dr["medium"].ToString() ?? "N/A";
+                string house = dr["house_name"] == DBNull.Value ? "N/A" :
+                    dr["house_name"].ToString() ?? "N/A";
+                string phone = dr["tele_number"] == DBNull.Value ? "N/A" :
+                    dr["tele_number"].ToString() ?? "N/A";
+                string nic = dr["nic_number"] == DBNull.Value ? "N/A" : 
+                    dr["nic_number"].ToString() ?? "N/A";
+                string addmission = dr["admission_number"] == DBNull.Value ? "N/A" :
+                    dr["admission_number"].ToString() ?? "N/A";
+                string family = dr["family_id"] == DBNull.Value ? "N/A" :
+                    dr["family_id"].ToString() ?? "N/A";
+                DateTime dob = dr["date_of_birth"] == DBNull.Value ? DateTime.Today : 
+                    Convert.ToDateTime(dr["date_of_birth"]);
 
-                string medium = dgvStudents.CurrentRow.Cells["medium"].Value.ToString();
-
-                if (string.IsNullOrEmpty(medium))
-                {
-                    medium = "N/A";
-                }
-
-                string house = dgvStudents.CurrentRow.Cells["house_id"].Value.ToString();
-                if (string.IsNullOrEmpty(house))
-                {
-                    house = "N/A";
-                }
-
-                DateTime dob = Convert.ToDateTime(dgvStudents.CurrentRow.Cells["date_of_birth"].Value);
-
-                string phone = dgvStudents.CurrentRow.Cells["tele_number"].Value.ToString();
-                if (string.IsNullOrEmpty(phone))
-                {
-                    phone = "N/A";
-                }
-
-                string nic = dgvStudents.CurrentRow.Cells["nic_number"].Value.ToString();
-                if (string.IsNullOrEmpty(nic))
-                {
-                    nic = "N/A";
-                }
-
-                string addmission = dgvStudents.CurrentRow.Cells["admission_number"].Value.ToString();
-                if (string.IsNullOrEmpty(addmission))
-                {
-                    addmission = "N/A";
-                }
-
-                string family = dgvStudents.CurrentRow.Cells["family_id"].Value.ToString();
-                if (string.IsNullOrEmpty(family))
-                {
-                    family = "N/A";
-                }
+                txt_fname.Text = firstname;
+                txt_lname.Text = lastname;
+                txt_address.Text = address;
+                txtaddmission.Text = addmission;
+                txt_nic.Text = nic;
+                txt_phone.Text = phone;
+                rdoMale.Checked = gender == "M" || gender == "Male";
+                rdoFemale.Checked = gender == "F" || gender == "Female";
+                cmb_grade.Text = grade;
+                cmb_medium.Text = medium;
+                cmbhouse.Text = house;
+                cmb_familyid.Text = family;
+                dtp_dob.Value = dob;
 
                 FrmShowStudent f = new FrmShowStudent(
-                    firstname,
-                    lastname,
-                    address,
-                    gender,
-                    grade,
-                    medium,
-                    house,
-                    dob,
-                    phone,
-                    nic,
-                    addmission,
+                    firstname, 
+                    lastname, 
+                    address, 
+                    gender, 
+                    grade, 
+                    medium, 
+                    house, 
+                    dob, 
+                    phone, 
+                    nic, 
+                    addmission, 
                     family
+                 );
 
-                );
-
-                f.ShowDialog();
-
-
+                f.Show();
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message.ToString());
-                throw;
+                MessageBox.Show("Unable to load student data: " + ex.Message);
             }
 
-
-            //------------------Alternative code to display student details in text boxes instead of a new form.------------------
-
+            // ------------------Code to display student details in a new form.------------------
             //try
             //{
-            //    if (dgvStudents.CurrentRow == null)
-            //    {
-            //        MessageBox.Show("No Data Found");
-            //        return;
-            //    }
-
-            //    //-----------firstname--------------------------------------------------------
             //    string firstname = dgvStudents.CurrentRow.Cells["first_name"].Value.ToString();
-            //    txt_fname.Text = firstname;
-
-            //    //-----------lastname--------------------------------------------------------
             //    string lastname = dgvStudents.CurrentRow.Cells["last_name"].Value.ToString();
-            //    txt_lname.Text = lastname;
-
-            //    //-----------address--------------------------------------------------------
             //    string address = dgvStudents.CurrentRow.Cells["per_address"].Value.ToString();
-            //    txt_address.Text = address;
 
-            //    //-----------Gender--------------------------------------------------------
             //    string gender = dgvStudents.CurrentRow.Cells["gender"].Value.ToString();
+
             //    if (gender == "M")
             //    {
             //        rdoMale.Checked = true;
@@ -194,16 +181,85 @@ namespace WinFormsApp1
             //    else if (gender == "F")
             //    {
             //        rdoFemale.Checked = true;
-            //    } 
+            //    }
+
+
+            //    string grade = "N/A";
+
+            //    string gradeId =
+            //        dgvStudents.CurrentRow.Cells["grade_id"].Value.ToString();
+
+            //    if (!string.IsNullOrEmpty(gradeId))
+            //    {
+            //        cmb_grade.SelectedValue = gradeId;
+            //        grade = cmb_grade.Text;
+            //    }
+
+
+            //    string medium = dgvStudents.CurrentRow.Cells["medium"].Value.ToString();
+
+            //    if (string.IsNullOrEmpty(medium))
+            //    {
+            //        medium = "N/A";
+            //    }
+
+            //    string house = dgvStudents.CurrentRow.Cells["house_id"].Value.ToString();
+            //    if (string.IsNullOrEmpty(house))
+            //    {
+            //        house = "N/A";
+            //    }
+
+            //    DateTime dob = Convert.ToDateTime(dgvStudents.CurrentRow.Cells["date_of_birth"].Value);
+
+            //    string phone = dgvStudents.CurrentRow.Cells["tele_number"].Value.ToString();
+            //    if (string.IsNullOrEmpty(phone))
+            //    {
+            //        phone = "N/A";
+            //    }
+
+            //    string nic = dgvStudents.CurrentRow.Cells["nic_number"].Value.ToString();
+            //    if (string.IsNullOrEmpty(nic))
+            //    {
+            //        nic = "N/A";
+            //    }
+
+            //    string addmission = dgvStudents.CurrentRow.Cells["admission_number"].Value.ToString();
+            //    if (string.IsNullOrEmpty(addmission))
+            //    {
+            //        addmission = "N/A";
+            //    }
+
+            //    string family = dgvStudents.CurrentRow.Cells["family_id"].Value.ToString();
+            //    if (string.IsNullOrEmpty(family))
+            //    {
+            //        family = "N/A";
+            //    }
+
+            //    FrmShowStudent f = new FrmShowStudent(
+            //        firstname,
+            //        lastname,
+            //        address,
+            //        gender,
+            //        grade,
+            //        medium,
+            //        house,
+            //        dob,
+            //        phone,
+            //        nic,
+            //        addmission,
+            //        family
+
+            //    );
+
+            //    f.ShowDialog();
+
 
             //}
             //catch (Exception ex)
             //{
-            //    MessageBox.Show("Please Select a row from the table:", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            //    MessageBox.Show(ex.Message.ToString());
+            //    throw;
             //}
-
-
-
         }
 
         private void btngrade_Click(object sender, EventArgs e)
@@ -301,6 +357,14 @@ namespace WinFormsApp1
                 throw;
             }
 
+        }
+
+        private void btn_Back_Click(object sender, EventArgs e)
+        {
+            Frmmaster frmmaster = new Frmmaster();
+            frmmaster.Show();
+
+            this.Close();
         }
 
     }

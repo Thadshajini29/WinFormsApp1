@@ -237,5 +237,13 @@ namespace WinFormsApp1
             lbl_error.Text = "";
             timer1.Stop();
         }
+
+        private void btn_back_Click(object sender, EventArgs e)
+        {
+            Frmmaster frmmaster = new Frmmaster();
+            frmmaster.Show();
+
+            this.Close();
+        }
     }
 }

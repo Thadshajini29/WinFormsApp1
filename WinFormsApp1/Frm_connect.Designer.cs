@@ -51,6 +51,8 @@
             cmb_medium = new ComboBox();
             cmb_familyid = new ComboBox();
             cmbhouse = new ComboBox();
+            lbl_dob = new Label();
+            dtp_dob = new DateTimePicker();
             lbl_addmission = new Label();
             txtaddmission = new TextBox();
             txt_phone = new TextBox();
@@ -60,6 +62,7 @@
             lbl_house = new Label();
             lbl_phone = new Label();
             lblnic = new Label();
+            btn_Back = new Button();
             ((System.ComponentModel.ISupportInitialize)dgvStudents).BeginInit();
             SuspendLayout();
             // 
@@ -231,7 +234,7 @@
             // 
             // btngender
             // 
-            btngender.Location = new Point(666, 25);
+            btngender.Location = new Point(650, 29);
             btngender.Name = "btngender";
             btngender.Size = new Size(132, 56);
             btngender.TabIndex = 3;
@@ -274,10 +277,26 @@
             cmbhouse.Size = new Size(182, 33);
             cmbhouse.TabIndex = 55;
             // 
+            // lbl_dob
+            // 
+            lbl_dob.AutoSize = true;
+            lbl_dob.Location = new Point(704, 748);
+            lbl_dob.Name = "lbl_dob";
+            lbl_dob.Size = new Size(112, 25);
+            lbl_dob.TabIndex = 58;
+            lbl_dob.Text = "Date of Birth";
+            // 
+            // dtp_dob
+            // 
+            dtp_dob.Location = new Point(884, 748);
+            dtp_dob.Name = "dtp_dob";
+            dtp_dob.Size = new Size(228, 31);
+            dtp_dob.TabIndex = 59;
+            // 
             // lbl_addmission
             // 
             lbl_addmission.AutoSize = true;
-            lbl_addmission.Location = new Point(729, 744);
+            lbl_addmission.Location = new Point(684, 811);
             lbl_addmission.Name = "lbl_addmission";
             lbl_addmission.Size = new Size(177, 25);
             lbl_addmission.TabIndex = 54;
@@ -285,7 +304,7 @@
             // 
             // txtaddmission
             // 
-            txtaddmission.Location = new Point(930, 744);
+            txtaddmission.Location = new Point(907, 811);
             txtaddmission.Name = "txtaddmission";
             txtaddmission.Size = new Size(193, 31);
             txtaddmission.TabIndex = 51;
@@ -349,6 +368,16 @@
             lblnic.TabIndex = 50;
             lblnic.Text = "Nic Number";
             // 
+            // btn_Back
+            // 
+            btn_Back.Location = new Point(374, 687);
+            btn_Back.Name = "btn_Back";
+            btn_Back.Size = new Size(184, 56);
+            btn_Back.TabIndex = 3;
+            btn_Back.Text = "Back to Master";
+            btn_Back.UseVisualStyleBackColor = true;
+            btn_Back.Click += btn_Back_Click;
+            // 
             // Frm_connect
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
@@ -357,6 +386,8 @@
             Controls.Add(cmb_medium);
             Controls.Add(cmb_familyid);
             Controls.Add(cmbhouse);
+            Controls.Add(dtp_dob);
+            Controls.Add(lbl_dob);
             Controls.Add(lbl_addmission);
             Controls.Add(txtaddmission);
             Controls.Add(txt_phone);
@@ -379,6 +410,7 @@
             Controls.Add(lbl_address);
             Controls.Add(lbl_lastname);
             Controls.Add(lbl_firstname);
+            Controls.Add(btn_Back);
             Controls.Add(btngender);
             Controls.Add(btn_dbshow);
             Controls.Add(btngrade);
@@ -418,6 +450,8 @@
         private ComboBox cmb_medium;
         private ComboBox cmb_familyid;
         private ComboBox cmbhouse;
+        private Label lbl_dob;
+        private DateTimePicker dtp_dob;
         private Label lbl_addmission;
         private TextBox txtaddmission;
         private TextBox txt_phone;
@@ -427,5 +461,6 @@
         private Label lbl_house;
         private Label lbl_phone;
         private Label lblnic;
+        private Button btn_Back;
     }
 }

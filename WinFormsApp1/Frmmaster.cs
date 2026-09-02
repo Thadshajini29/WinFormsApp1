@@ -22,5 +22,45 @@ namespace WinFormsApp1
 
             this.Hide();
         }
+
+        private void btn_calculate_Click(object sender, EventArgs e)
+        {
+            Frm_calculate frmcalculate = new Frm_calculate();
+            frmcalculate.Show();
+
+            this.Hide();
+        }
+
+        private void btn_combobox_Click(object sender, EventArgs e)
+        {
+            Frm_combobox frmcombobox = new Frm_combobox();
+            frmcombobox.Show();
+
+            this.Hide();
+        }
+
+        private void btn_filldata_Click(object sender, EventArgs e)
+        {
+            FrmStudent frmstudent = new FrmStudent();
+            frmstudent.Show();
+
+            this.Hide();
+        }
+
+        private void btn_connect_Click(object sender, EventArgs e)
+        {
+            Frm_connect frmconnect = new Frm_connect();
+            frmconnect.Show();
+
+            this.Hide();
+        }
+
+        private void btn_dbshow_Click(object sender, EventArgs e)
+        {
+            Frm_connect frmconnect = new Frm_connect();
+            frmconnect.Show();
+
+            this.Hide();
+        }
     }
 }
