@@ -59,26 +59,27 @@
             // 
             cmb_medium.FormattingEnabled = true;
             cmb_medium.Items.AddRange(new object[] { "Tamil", "English" });
-            cmb_medium.Location = new Point(682, 200);
+            cmb_medium.Location = new Point(671, 200);
             cmb_medium.Name = "cmb_medium";
-            cmb_medium.Size = new Size(182, 33);
+            cmb_medium.Size = new Size(196, 33);
             cmb_medium.TabIndex = 45;
             // 
             // cmb_familyid
             // 
             cmb_familyid.FormattingEnabled = true;
-            cmb_familyid.Location = new Point(685, 255);
+            cmb_familyid.Location = new Point(671, 255);
             cmb_familyid.Name = "cmb_familyid";
-            cmb_familyid.Size = new Size(182, 33);
+            cmb_familyid.Size = new Size(196, 33);
             cmb_familyid.TabIndex = 44;
             // 
             // cmbhouse
             // 
             cmbhouse.FormattingEnabled = true;
-            cmbhouse.Location = new Point(682, 141);
+            cmbhouse.Location = new Point(671, 136);
             cmbhouse.Name = "cmbhouse";
-            cmbhouse.Size = new Size(182, 33);
+            cmbhouse.Size = new Size(193, 33);
             cmbhouse.TabIndex = 43;
+            cmbhouse.SelectedIndexChanged += cmbhouse_SelectedIndexChanged;
             // 
             // dtp_dob
             // 
@@ -98,7 +99,7 @@
             // lbl_addmission
             // 
             lbl_addmission.AutoSize = true;
-            lbl_addmission.Location = new Point(484, 320);
+            lbl_addmission.Location = new Point(459, 319);
             lbl_addmission.Name = "lbl_addmission";
             lbl_addmission.Size = new Size(177, 25);
             lbl_addmission.TabIndex = 40;
@@ -155,7 +156,7 @@
             // 
             // txtaddmission
             // 
-            txtaddmission.Location = new Point(685, 320);
+            txtaddmission.Location = new Point(674, 313);
             txtaddmission.Name = "txtaddmission";
             txtaddmission.Size = new Size(193, 31);
             txtaddmission.TabIndex = 29;
@@ -183,7 +184,7 @@
             // 
             // txt_nic
             // 
-            txt_nic.Location = new Point(662, 24);
+            txt_nic.Location = new Point(671, 40);
             txt_nic.Name = "txt_nic";
             txt_nic.Size = new Size(193, 31);
             txt_nic.TabIndex = 33;
@@ -207,16 +208,17 @@
             // lbl_familyid
             // 
             lbl_familyid.AutoSize = true;
-            lbl_familyid.Location = new Point(484, 263);
+            lbl_familyid.Location = new Point(460, 263);
             lbl_familyid.Name = "lbl_familyid";
             lbl_familyid.Size = new Size(83, 25);
             lbl_familyid.TabIndex = 26;
             lbl_familyid.Text = "Family Id";
+            lbl_familyid.Click += lbl_familyid_Click;
             // 
             // lblmedium
             // 
             lblmedium.AutoSize = true;
-            lblmedium.Location = new Point(484, 208);
+            lblmedium.Location = new Point(459, 208);
             lblmedium.Name = "lblmedium";
             lblmedium.Size = new Size(78, 25);
             lblmedium.TabIndex = 25;
@@ -225,7 +227,7 @@
             // lbl_house
             // 
             lbl_house.AutoSize = true;
-            lbl_house.Location = new Point(479, 149);
+            lbl_house.Location = new Point(459, 155);
             lbl_house.Name = "lbl_house";
             lbl_house.Size = new Size(83, 25);
             lbl_house.TabIndex = 24;
@@ -252,7 +254,7 @@
             // lblnic
             // 
             lblnic.AutoSize = true;
-            lblnic.Location = new Point(460, 30);
+            lblnic.Location = new Point(460, 43);
             lblnic.Name = "lblnic";
             lblnic.Size = new Size(107, 25);
             lblnic.TabIndex = 28;
@@ -271,7 +273,7 @@
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(904, 404);
+            ClientSize = new Size(904, 397);
             Controls.Add(cmb_medium);
             Controls.Add(cmb_familyid);
             Controls.Add(cmbhouse);

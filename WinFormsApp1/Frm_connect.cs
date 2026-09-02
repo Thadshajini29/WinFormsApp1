@@ -66,7 +66,7 @@ namespace WinFormsApp1
 
         private void btn_show_Click(object sender, EventArgs e)
         {
-            //------------------Code to display student details in a new form.------------------
+           // ------------------Code to display student details in a new form.------------------
             try
             {
                 string firstname = dgvStudents.CurrentRow.Cells["first_name"].Value.ToString();
@@ -167,21 +167,34 @@ namespace WinFormsApp1
 
             //try
             //{
-            //    if(dgvStudents.CurrentRow == null)
+            //    if (dgvStudents.CurrentRow == null)
             //    {
             //        MessageBox.Show("No Data Found");
             //        return;
             //    }
 
+            //    //-----------firstname--------------------------------------------------------
             //    string firstname = dgvStudents.CurrentRow.Cells["first_name"].Value.ToString();
             //    txt_fname.Text = firstname;
 
+            //    //-----------lastname--------------------------------------------------------
             //    string lastname = dgvStudents.CurrentRow.Cells["last_name"].Value.ToString();
             //    txt_lname.Text = lastname;
 
-            //    string address = dgvStudents.CurrentRow.Cells["address"].Value.ToString();
+            //    //-----------address--------------------------------------------------------
+            //    string address = dgvStudents.CurrentRow.Cells["per_address"].Value.ToString();
             //    txt_address.Text = address;
 
+            //    //-----------Gender--------------------------------------------------------
+            //    string gender = dgvStudents.CurrentRow.Cells["gender"].Value.ToString();
+            //    if (gender == "M")
+            //    {
+            //        rdoMale.Checked = true;
+            //    }
+            //    else if (gender == "F")
+            //    {
+            //        rdoFemale.Checked = true;
+            //    } 
 
             //}
             //catch (Exception ex)
@@ -281,11 +294,14 @@ namespace WinFormsApp1
                 Frmdbshow f = new Frmdbshow(id);
                 f.ShowDialog();
             }
+
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message.ToString());
                 throw;
             }
+
         }
+
     }
 }

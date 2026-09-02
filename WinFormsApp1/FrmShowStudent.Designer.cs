@@ -53,6 +53,7 @@
             lbl_familyid = new Label();
             cmb_familyid = new ComboBox();
             cmb_medium = new ComboBox();
+            lbl_studentinformation = new Label();
             SuspendLayout();
             // 
             // txt_address
@@ -200,7 +201,7 @@
             // 
             // txt_nic
             // 
-            txt_nic.Location = new Point(665, 137);
+            txt_nic.Location = new Point(677, 137);
             txt_nic.Name = "txt_nic";
             txt_nic.Size = new Size(193, 31);
             txt_nic.TabIndex = 11;
@@ -278,11 +279,25 @@
             cmb_medium.TabIndex = 20;
             cmb_medium.SelectedIndexChanged += cmb_medium_SelectedIndexChanged;
             // 
+            // lbl_studentinformation
+            // 
+            lbl_studentinformation.BackColor = SystemColors.ScrollBar;
+            lbl_studentinformation.Dock = DockStyle.Top;
+            lbl_studentinformation.Font = new Font("Segoe UI Semibold", 14F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lbl_studentinformation.ForeColor = SystemColors.Highlight;
+            lbl_studentinformation.Location = new Point(0, 0);
+            lbl_studentinformation.Name = "lbl_studentinformation";
+            lbl_studentinformation.Size = new Size(921, 89);
+            lbl_studentinformation.TabIndex = 21;
+            lbl_studentinformation.Text = "Student Information Page";
+            lbl_studentinformation.TextAlign = ContentAlignment.TopCenter;
+            // 
             // FrmShowStudent
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(921, 503);
+            Controls.Add(lbl_studentinformation);
             Controls.Add(cmb_medium);
             Controls.Add(cmb_familyid);
             Controls.Add(cmbhouse);
@@ -342,5 +357,6 @@
         private Label lbl_familyid;
         private ComboBox cmb_familyid;
         private ComboBox cmb_medium;
+        private Label lbl_studentinformation;
     }
 }
