@@ -1,0 +1,346 @@
+﻿namespace WinFormsApp1
+{
+    partial class FrmCreateStudent
+    {
+        /// <summary>
+        /// Required designer variable.
+        /// </summary>
+        private System.ComponentModel.IContainer components = null;
+
+        /// <summary>
+        /// Clean up any resources being used.
+        /// </summary>
+        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing && (components != null))
+            {
+                components.Dispose();
+            }
+            base.Dispose(disposing);
+        }
+
+        #region Windows Form Designer generated code
+
+        /// <summary>
+        /// Required method for Designer support - do not modify
+        /// the contents of this method with the code editor.
+        /// </summary>
+        private void InitializeComponent()
+        {
+            btn_cancel = new Button();
+            cmb_medium = new ComboBox();
+            cmbhouse = new ComboBox();
+            dtp_dob = new DateTimePicker();
+            cmb_grade = new ComboBox();
+            lbl_addmission = new Label();
+            lbl_dob = new Label();
+            lblgrade = new Label();
+            rdoFemale = new RadioButton();
+            rdoMale = new RadioButton();
+            lblgender = new Label();
+            txtaddmission = new TextBox();
+            txt_address = new TextBox();
+            txt_lname = new TextBox();
+            txt_phone = new TextBox();
+            txt_nic = new TextBox();
+            txt_fname = new TextBox();
+            lbl_address = new Label();
+            lbl_familyid = new Label();
+            lblmedium = new Label();
+            lbl_house = new Label();
+            lbl_phone = new Label();
+            lbl_lastname = new Label();
+            lblnic = new Label();
+            lbl_firstname = new Label();
+            textBox1 = new TextBox();
+            SuspendLayout();
+            // 
+            // btn_cancel
+            // 
+            btn_cancel.Location = new Point(490, 358);
+            btn_cancel.Name = "btn_cancel";
+            btn_cancel.Size = new Size(138, 65);
+            btn_cancel.TabIndex = 72;
+            btn_cancel.Text = "cancel";
+            btn_cancel.UseVisualStyleBackColor = true;
+            // 
+            // cmb_medium
+            // 
+            cmb_medium.FormattingEnabled = true;
+            cmb_medium.Items.AddRange(new object[] { "Tamil", "English" });
+            cmb_medium.Location = new Point(573, 189);
+            cmb_medium.Name = "cmb_medium";
+            cmb_medium.Size = new Size(196, 33);
+            cmb_medium.TabIndex = 71;
+            // 
+            // cmbhouse
+            // 
+            cmbhouse.FormattingEnabled = true;
+            cmbhouse.Location = new Point(573, 134);
+            cmbhouse.Name = "cmbhouse";
+            cmbhouse.Size = new Size(193, 33);
+            cmbhouse.TabIndex = 69;
+            cmbhouse.SelectedIndexChanged += cmbhouse_SelectedIndexChanged;
+            // 
+            // dtp_dob
+            // 
+            dtp_dob.Location = new Point(144, 301);
+            dtp_dob.Name = "dtp_dob";
+            dtp_dob.Size = new Size(193, 31);
+            dtp_dob.TabIndex = 68;
+            // 
+            // cmb_grade
+            // 
+            cmb_grade.FormattingEnabled = true;
+            cmb_grade.Location = new Point(144, 250);
+            cmb_grade.Name = "cmb_grade";
+            cmb_grade.Size = new Size(193, 33);
+            cmb_grade.TabIndex = 67;
+            // 
+            // lbl_addmission
+            // 
+            lbl_addmission.AutoSize = true;
+            lbl_addmission.Location = new Point(384, 306);
+            lbl_addmission.Name = "lbl_addmission";
+            lbl_addmission.Size = new Size(177, 25);
+            lbl_addmission.TabIndex = 66;
+            lbl_addmission.Text = "Addmission Number";
+            // 
+            // lbl_dob
+            // 
+            lbl_dob.AutoSize = true;
+            lbl_dob.Location = new Point(6, 307);
+            lbl_dob.Name = "lbl_dob";
+            lbl_dob.Size = new Size(112, 25);
+            lbl_dob.TabIndex = 65;
+            lbl_dob.Text = "Date of Birth";
+            // 
+            // lblgrade
+            // 
+            lblgrade.AutoSize = true;
+            lblgrade.Location = new Point(6, 253);
+            lblgrade.Name = "lblgrade";
+            lblgrade.Size = new Size(59, 25);
+            lblgrade.TabIndex = 64;
+            lblgrade.Text = "Grade";
+            // 
+            // rdoFemale
+            // 
+            rdoFemale.AutoSize = true;
+            rdoFemale.Location = new Point(244, 195);
+            rdoFemale.Name = "rdoFemale";
+            rdoFemale.Size = new Size(93, 29);
+            rdoFemale.TabIndex = 63;
+            rdoFemale.TabStop = true;
+            rdoFemale.Text = "Female";
+            rdoFemale.UseVisualStyleBackColor = true;
+            // 
+            // rdoMale
+            // 
+            rdoMale.AutoSize = true;
+            rdoMale.Location = new Point(144, 195);
+            rdoMale.Name = "rdoMale";
+            rdoMale.Size = new Size(75, 29);
+            rdoMale.TabIndex = 62;
+            rdoMale.TabStop = true;
+            rdoMale.Text = "Male";
+            rdoMale.UseVisualStyleBackColor = true;
+            // 
+            // lblgender
+            // 
+            lblgender.AutoSize = true;
+            lblgender.Location = new Point(6, 197);
+            lblgender.Name = "lblgender";
+            lblgender.Size = new Size(69, 25);
+            lblgender.TabIndex = 61;
+            lblgender.Text = "Gender";
+            // 
+            // txtaddmission
+            // 
+            txtaddmission.Location = new Point(576, 300);
+            txtaddmission.Name = "txtaddmission";
+            txtaddmission.Size = new Size(193, 31);
+            txtaddmission.TabIndex = 55;
+            // 
+            // txt_address
+            // 
+            txt_address.Location = new Point(144, 136);
+            txt_address.Name = "txt_address";
+            txt_address.Size = new Size(193, 31);
+            txt_address.TabIndex = 56;
+            // 
+            // txt_lname
+            // 
+            txt_lname.Location = new Point(144, 81);
+            txt_lname.Name = "txt_lname";
+            txt_lname.Size = new Size(193, 31);
+            txt_lname.TabIndex = 57;
+            // 
+            // txt_phone
+            // 
+            txt_phone.Location = new Point(573, 81);
+            txt_phone.Name = "txt_phone";
+            txt_phone.Size = new Size(193, 31);
+            txt_phone.TabIndex = 58;
+            // 
+            // txt_nic
+            // 
+            txt_nic.Location = new Point(573, 33);
+            txt_nic.Name = "txt_nic";
+            txt_nic.Size = new Size(193, 31);
+            txt_nic.TabIndex = 59;
+            // 
+            // txt_fname
+            // 
+            txt_fname.Location = new Point(144, 27);
+            txt_fname.Name = "txt_fname";
+            txt_fname.Size = new Size(193, 31);
+            txt_fname.TabIndex = 60;
+            // 
+            // lbl_address
+            // 
+            lbl_address.AutoSize = true;
+            lbl_address.Location = new Point(6, 142);
+            lbl_address.Name = "lbl_address";
+            lbl_address.Size = new Size(77, 25);
+            lbl_address.TabIndex = 47;
+            lbl_address.Text = "Address";
+            // 
+            // lbl_familyid
+            // 
+            lbl_familyid.AutoSize = true;
+            lbl_familyid.Location = new Point(384, 245);
+            lbl_familyid.Name = "lbl_familyid";
+            lbl_familyid.Size = new Size(83, 25);
+            lbl_familyid.TabIndex = 52;
+            lbl_familyid.Text = "Family Id";
+            // 
+            // lblmedium
+            // 
+            lblmedium.AutoSize = true;
+            lblmedium.Location = new Point(389, 197);
+            lblmedium.Name = "lblmedium";
+            lblmedium.Size = new Size(78, 25);
+            lblmedium.TabIndex = 51;
+            lblmedium.Text = "Medium";
+            // 
+            // lbl_house
+            // 
+            lbl_house.AutoSize = true;
+            lbl_house.Location = new Point(389, 142);
+            lbl_house.Name = "lbl_house";
+            lbl_house.Size = new Size(83, 25);
+            lbl_house.TabIndex = 50;
+            lbl_house.Text = "House id";
+            // 
+            // lbl_phone
+            // 
+            lbl_phone.AutoSize = true;
+            lbl_phone.Location = new Point(389, 84);
+            lbl_phone.Name = "lbl_phone";
+            lbl_phone.Size = new Size(132, 25);
+            lbl_phone.TabIndex = 49;
+            lbl_phone.Text = "Phone Number";
+            // 
+            // lbl_lastname
+            // 
+            lbl_lastname.AutoSize = true;
+            lbl_lastname.Location = new Point(6, 87);
+            lbl_lastname.Name = "lbl_lastname";
+            lbl_lastname.Size = new Size(95, 25);
+            lbl_lastname.TabIndex = 48;
+            lbl_lastname.Text = "Last Name";
+            // 
+            // lblnic
+            // 
+            lblnic.AutoSize = true;
+            lblnic.Location = new Point(389, 33);
+            lblnic.Name = "lblnic";
+            lblnic.Size = new Size(107, 25);
+            lblnic.TabIndex = 54;
+            lblnic.Text = "Nic Number";
+            // 
+            // lbl_firstname
+            // 
+            lbl_firstname.AutoSize = true;
+            lbl_firstname.Location = new Point(6, 33);
+            lbl_firstname.Name = "lbl_firstname";
+            lbl_firstname.Size = new Size(97, 25);
+            lbl_firstname.TabIndex = 53;
+            lbl_firstname.Text = "First Name";
+            // 
+            // textBox1
+            // 
+            textBox1.Location = new Point(576, 247);
+            textBox1.Name = "textBox1";
+            textBox1.Size = new Size(186, 31);
+            textBox1.TabIndex = 73;
+            // 
+            // FrmCreateStudent
+            // 
+            AutoScaleDimensions = new SizeF(10F, 25F);
+            AutoScaleMode = AutoScaleMode.Font;
+            ClientSize = new Size(800, 450);
+            Controls.Add(textBox1);
+            Controls.Add(btn_cancel);
+            Controls.Add(cmb_medium);
+            Controls.Add(cmbhouse);
+            Controls.Add(dtp_dob);
+            Controls.Add(cmb_grade);
+            Controls.Add(lbl_addmission);
+            Controls.Add(lbl_dob);
+            Controls.Add(lblgrade);
+            Controls.Add(rdoFemale);
+            Controls.Add(rdoMale);
+            Controls.Add(lblgender);
+            Controls.Add(txtaddmission);
+            Controls.Add(txt_address);
+            Controls.Add(txt_lname);
+            Controls.Add(txt_phone);
+            Controls.Add(txt_nic);
+            Controls.Add(txt_fname);
+            Controls.Add(lbl_address);
+            Controls.Add(lbl_familyid);
+            Controls.Add(lblmedium);
+            Controls.Add(lbl_house);
+            Controls.Add(lbl_phone);
+            Controls.Add(lbl_lastname);
+            Controls.Add(lblnic);
+            Controls.Add(lbl_firstname);
+            Name = "FrmCreateStudent";
+            Text = "FrmCreateStudent";
+            ResumeLayout(false);
+            PerformLayout();
+        }
+
+        #endregion
+
+        private Button btn_cancel;
+        private ComboBox cmb_medium;
+        private ComboBox cmbhouse;
+        private DateTimePicker dtp_dob;
+        private ComboBox cmb_grade;
+        private Label lbl_addmission;
+        private Label lbl_dob;
+        private Label lblgrade;
+        private RadioButton rdoFemale;
+        private RadioButton rdoMale;
+        private Label lblgender;
+        private TextBox txtaddmission;
+        private TextBox txt_address;
+        private TextBox txt_lname;
+        private TextBox txt_phone;
+        private TextBox txt_nic;
+        private TextBox txt_fname;
+        private Label lbl_address;
+        private Label lbl_familyid;
+        private Label lblmedium;
+        private Label lbl_house;
+        private Label lbl_phone;
+        private Label lbl_lastname;
+        private Label lblnic;
+        private Label lbl_firstname;
+        private TextBox textBox1;
+    }
+}

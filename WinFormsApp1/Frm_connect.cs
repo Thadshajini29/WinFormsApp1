@@ -110,23 +110,23 @@ namespace WinFormsApp1
                     dr["last_name"].ToString() ?? "";
                 string address = dr["per_address"] == DBNull.Value ? "" :
                     dr["per_address"].ToString() ?? "";
-                string gender = dr["gender"] == DBNull.Value ? "" : 
+                string gender = dr["gender"] == DBNull.Value ? "" :
                     dr["gender"].ToString() ?? "";
                 string grade = dr["grade_name"] == DBNull.Value ? "N/A" :
                     dr["grade_name"].ToString() ?? "N/A";
-                string medium = dr["medium"] == DBNull.Value ? "N/A" : 
+                string medium = dr["medium"] == DBNull.Value ? "N/A" :
                     dr["medium"].ToString() ?? "N/A";
                 string house = dr["house_name"] == DBNull.Value ? "N/A" :
                     dr["house_name"].ToString() ?? "N/A";
                 string phone = dr["tele_number"] == DBNull.Value ? "N/A" :
                     dr["tele_number"].ToString() ?? "N/A";
-                string nic = dr["nic_number"] == DBNull.Value ? "N/A" : 
+                string nic = dr["nic_number"] == DBNull.Value ? "N/A" :
                     dr["nic_number"].ToString() ?? "N/A";
                 string addmission = dr["admission_number"] == DBNull.Value ? "N/A" :
                     dr["admission_number"].ToString() ?? "N/A";
                 string family = dr["family_id"] == DBNull.Value ? "N/A" :
                     dr["family_id"].ToString() ?? "N/A";
-                DateTime dob = dr["date_of_birth"] == DBNull.Value ? DateTime.Today : 
+                DateTime dob = dr["date_of_birth"] == DBNull.Value ? DateTime.Today :
                     Convert.ToDateTime(dr["date_of_birth"]);
 
                 txt_fname.Text = firstname;
@@ -144,17 +144,17 @@ namespace WinFormsApp1
                 dtp_dob.Value = dob;
 
                 FrmShowStudent f = new FrmShowStudent(
-                    firstname, 
-                    lastname, 
-                    address, 
-                    gender, 
-                    grade, 
-                    medium, 
-                    house, 
-                    dob, 
-                    phone, 
-                    nic, 
-                    addmission, 
+                    firstname,
+                    lastname,
+                    address,
+                    gender,
+                    grade,
+                    medium,
+                    house,
+                    dob,
+                    phone,
+                    nic,
+                    addmission,
                     family
                  );
 
@@ -367,5 +367,69 @@ namespace WinFormsApp1
             this.Close();
         }
 
+        private void btn_edit_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (dgvStudents.CurrentRow == null)
+                {
+                    MessageBox.Show("no Data found");
+                    return;
+                }
+
+                string id = dgvStudents.CurrentRow.Cells["id"].Value?.ToString();
+                FrmEditStudent f = new FrmEditStudent(id);
+                f.ShowDialog();
+            }
+
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message.ToString());
+                throw;
+            }
+
+        }
+
+        private void btn_delete_Click(object sender, EventArgs e)
+        {
+            string connectionString = "Server=localhost;Database=school;Uid=root;Pwd=root;";
+            MySqlConnection conn = new MySqlConnection(connectionString);
+
+            try
+            {
+                conn.Open();
+
+                if (dgvStudents.CurrentRow == null)
+                {
+                    MessageBox.Show("no Data found");
+                    return;
+                }
+
+                string id = dgvStudents.CurrentRow.Cells["id"].Value?.ToString();
+
+                DialogResult result = MessageBox.Show(
+                    "Are you sure you want to delete this student?",
+                    "Confirm Delete",
+                    MessageBoxButtons.YesNo,
+                    MessageBoxIcon.Warning);
+
+                if (result == DialogResult.Yes)
+                {
+                    MySqlCommand cmd = new MySqlCommand($"DELETE FROM students WHERE id = {id}", conn);
+                    int affected = cmd.ExecuteNonQuery();
+                    MessageBox.Show("Deleted successfully. Rows Affected: " + affected.ToString(), "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                }
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("An error occurred while connecting the databse: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            finally
+            {
+                conn.Close();
+            }
+        }
     }
 }

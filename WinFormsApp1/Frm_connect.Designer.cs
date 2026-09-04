@@ -46,7 +46,6 @@
             lblgender = new Label();
             rdoMale = new RadioButton();
             rdoFemale = new RadioButton();
-            btngender = new Button();
             btn_dbshow = new Button();
             cmb_medium = new ComboBox();
             cmb_familyid = new ComboBox();
@@ -63,6 +62,9 @@
             lbl_phone = new Label();
             lblnic = new Label();
             btn_Back = new Button();
+            btn_edit = new Button();
+            btn_delete = new Button();
+            btn_insert = new Button();
             ((System.ComponentModel.ISupportInitialize)dgvStudents).BeginInit();
             SuspendLayout();
             // 
@@ -232,19 +234,9 @@
             rdoFemale.Text = "Female";
             rdoFemale.UseVisualStyleBackColor = true;
             // 
-            // btngender
-            // 
-            btngender.Location = new Point(650, 29);
-            btngender.Name = "btngender";
-            btngender.Size = new Size(132, 56);
-            btngender.TabIndex = 3;
-            btngender.Text = "Gender";
-            btngender.UseVisualStyleBackColor = true;
-            btngender.Click += btngender_Click;
-            // 
             // btn_dbshow
             // 
-            btn_dbshow.Location = new Point(826, 29);
+            btn_dbshow.Location = new Point(639, 25);
             btn_dbshow.Name = "btn_dbshow";
             btn_dbshow.Size = new Size(132, 56);
             btn_dbshow.TabIndex = 3;
@@ -378,11 +370,40 @@
             btn_Back.UseVisualStyleBackColor = true;
             btn_Back.Click += btn_Back_Click;
             // 
+            // btn_edit
+            // 
+            btn_edit.Location = new Point(791, 25);
+            btn_edit.Name = "btn_edit";
+            btn_edit.Size = new Size(132, 56);
+            btn_edit.TabIndex = 3;
+            btn_edit.Text = "Edit";
+            btn_edit.UseVisualStyleBackColor = true;
+            btn_edit.Click += btn_edit_Click;
+            // 
+            // btn_delete
+            // 
+            btn_delete.Location = new Point(930, 25);
+            btn_delete.Name = "btn_delete";
+            btn_delete.Size = new Size(132, 56);
+            btn_delete.TabIndex = 3;
+            btn_delete.Text = "Delete";
+            btn_delete.UseVisualStyleBackColor = true;
+            btn_delete.Click += btn_delete_Click;
+            // 
+            // btn_insert
+            // 
+            btn_insert.Location = new Point(1068, 25);
+            btn_insert.Name = "btn_insert";
+            btn_insert.Size = new Size(132, 56);
+            btn_insert.TabIndex = 3;
+            btn_insert.Text = "Insert";
+            btn_insert.UseVisualStyleBackColor = true;
+            // 
             // Frm_connect
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1175, 854);
+            ClientSize = new Size(1252, 854);
             Controls.Add(cmb_medium);
             Controls.Add(cmb_familyid);
             Controls.Add(cmbhouse);
@@ -411,7 +432,9 @@
             Controls.Add(lbl_lastname);
             Controls.Add(lbl_firstname);
             Controls.Add(btn_Back);
-            Controls.Add(btngender);
+            Controls.Add(btn_insert);
+            Controls.Add(btn_delete);
+            Controls.Add(btn_edit);
             Controls.Add(btn_dbshow);
             Controls.Add(btngrade);
             Controls.Add(btn_show);
@@ -445,7 +468,6 @@
         private Label lblgender;
         private RadioButton rdoMale;
         private RadioButton rdoFemale;
-        private Button btngender;
         private Button btn_dbshow;
         private ComboBox cmb_medium;
         private ComboBox cmb_familyid;
@@ -462,5 +484,8 @@
         private Label lbl_phone;
         private Label lblnic;
         private Button btn_Back;
+        private Button btn_edit;
+        private Button btn_delete;
+        private Button btn_insert;
     }
 }

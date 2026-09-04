@@ -34,7 +34,7 @@
             btn_combobox = new Button();
             btn_filldata = new Button();
             btn_connect = new Button();
-            btn_dbshow = new Button();
+            btn_edit = new Button();
             SuspendLayout();
             // 
             // lbl_master
@@ -109,16 +109,17 @@
             btn_connect.UseVisualStyleBackColor = false;
             btn_connect.Click += btn_connect_Click;
             // 
-            // btn_dbshow
+            // btn_edit
             // 
-            btn_dbshow.BackColor = SystemColors.ControlDark;
-            btn_dbshow.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            btn_dbshow.Location = new Point(216, 243);
-            btn_dbshow.Name = "btn_dbshow";
-            btn_dbshow.Size = new Size(168, 51);
-            btn_dbshow.TabIndex = 1;
-            btn_dbshow.Text = "DatabaseShow";
-            btn_dbshow.UseVisualStyleBackColor = false;
+            btn_edit.BackColor = SystemColors.ControlDark;
+            btn_edit.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            btn_edit.Location = new Point(207, 243);
+            btn_edit.Name = "btn_edit";
+            btn_edit.Size = new Size(168, 51);
+            btn_edit.TabIndex = 1;
+            btn_edit.Text = "Edit";
+            btn_edit.UseVisualStyleBackColor = false;
+            btn_edit.Click += btn_edit_Click;
             // 
             // Frmmaster
             // 
@@ -126,8 +127,8 @@
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(408, 341);
             Controls.Add(btn_calculate);
+            Controls.Add(btn_edit);
             Controls.Add(btn_filldata);
-            Controls.Add(btn_dbshow);
             Controls.Add(btn_connect);
             Controls.Add(btn_combobox);
             Controls.Add(btnfullname);
@@ -146,5 +147,6 @@
         private Button btn_filldata;
         private Button btn_connect;
         private Button btn_dbshow;
+        private Button btn_edit;
     }
 }

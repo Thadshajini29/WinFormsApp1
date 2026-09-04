@@ -15,8 +15,10 @@ namespace WinFormsApp1
             //Application.Run(new FrmStudent());
             //Application.Run(new Frm_combobox());
             //Application.Run(new Frm_calculate());
-            //Application.Run(new Frm_connect());
-            Application.Run(new Frmmaster());
+            Application.Run(new Frm_connect());
+            //Application.Run(new Frmmaster());
+
+            //Application.Run(new FrmEditStudent());
         }
     }
 }

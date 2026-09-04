@@ -62,5 +62,13 @@ namespace WinFormsApp1
 
             this.Hide();
         }
+
+        private void btn_edit_Click(object sender, EventArgs e)
+        {
+            Frm_connect frmconnect = new Frm_connect();
+            frmconnect.Show();
+
+            this.Hide();
+        }
     }
 }
