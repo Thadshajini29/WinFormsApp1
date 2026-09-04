@@ -431,5 +431,11 @@ namespace WinFormsApp1
                 conn.Close();
             }
         }
+
+        private void btn_insert_Click(object sender, EventArgs e)
+        {
+            FrmCreateStudent f = new FrmCreateStudent();
+            f.ShowDialog();
+        }
     }
 }

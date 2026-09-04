@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             btn_cancel = new Button();
+            btn_create = new Button();
             cmb_medium = new ComboBox();
             cmbhouse = new ComboBox();
             dtp_dob = new DateTimePicker();
@@ -53,17 +54,28 @@
             lbl_lastname = new Label();
             lblnic = new Label();
             lbl_firstname = new Label();
-            textBox1 = new TextBox();
+            txt_familyid = new TextBox();
             SuspendLayout();
             // 
             // btn_cancel
             // 
-            btn_cancel.Location = new Point(490, 358);
+            btn_cancel.Location = new Point(408, 358);
             btn_cancel.Name = "btn_cancel";
             btn_cancel.Size = new Size(138, 65);
             btn_cancel.TabIndex = 72;
             btn_cancel.Text = "cancel";
             btn_cancel.UseVisualStyleBackColor = true;
+            btn_cancel.Click += btn_cancel_Click;
+            // 
+            // btn_create
+            // 
+            btn_create.Location = new Point(573, 358);
+            btn_create.Name = "btn_create";
+            btn_create.Size = new Size(138, 65);
+            btn_create.TabIndex = 74;
+            btn_create.Text = "Create";
+            btn_create.UseVisualStyleBackColor = true;
+            btn_create.Click += btn_create_Click;
             // 
             // cmb_medium
             // 
@@ -210,11 +222,11 @@
             // lbl_familyid
             // 
             lbl_familyid.AutoSize = true;
-            lbl_familyid.Location = new Point(384, 245);
+            lbl_familyid.Location = new Point(384, 253);
             lbl_familyid.Name = "lbl_familyid";
-            lbl_familyid.Size = new Size(83, 25);
+            lbl_familyid.Size = new Size(155, 25);
             lbl_familyid.TabIndex = 52;
-            lbl_familyid.Text = "Family Id";
+            lbl_familyid.Text = "Guardian_Number";
             // 
             // lblmedium
             // 
@@ -270,19 +282,20 @@
             lbl_firstname.TabIndex = 53;
             lbl_firstname.Text = "First Name";
             // 
-            // textBox1
+            // txt_familyid
             // 
-            textBox1.Location = new Point(576, 247);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(186, 31);
-            textBox1.TabIndex = 73;
+            txt_familyid.Location = new Point(576, 247);
+            txt_familyid.Name = "txt_familyid";
+            txt_familyid.Size = new Size(186, 31);
+            txt_familyid.TabIndex = 73;
             // 
             // FrmCreateStudent
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
-            Controls.Add(textBox1);
+            Controls.Add(txt_familyid);
+            Controls.Add(btn_create);
             Controls.Add(btn_cancel);
             Controls.Add(cmb_medium);
             Controls.Add(cmbhouse);
@@ -310,6 +323,7 @@
             Controls.Add(lbl_firstname);
             Name = "FrmCreateStudent";
             Text = "FrmCreateStudent";
+            Load += FrmCreateStudent_Load;
             ResumeLayout(false);
             PerformLayout();
         }
@@ -317,6 +331,7 @@
         #endregion
 
         private Button btn_cancel;
+        private Button btn_create;
         private ComboBox cmb_medium;
         private ComboBox cmbhouse;
         private DateTimePicker dtp_dob;
@@ -341,6 +356,6 @@
         private Label lbl_lastname;
         private Label lblnic;
         private Label lbl_firstname;
-        private TextBox textBox1;
+        private TextBox txt_familyid;
     }
 }

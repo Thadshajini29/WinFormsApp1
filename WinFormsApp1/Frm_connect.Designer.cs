@@ -398,6 +398,7 @@
             btn_insert.TabIndex = 3;
             btn_insert.Text = "Insert";
             btn_insert.UseVisualStyleBackColor = true;
+            btn_insert.Click += btn_insert_Click;
             // 
             // Frm_connect
             // 
