@@ -33,6 +33,8 @@
             lbl_Grade = new Label();
             btn_create = new Button();
             btn_Edit = new Button();
+            btn_show = new Button();
+            btn_delete = new Button();
             ((System.ComponentModel.ISupportInitialize)dgv_Grades).BeginInit();
             SuspendLayout();
             // 
@@ -44,6 +46,9 @@
             dgv_Grades.RowHeadersWidth = 62;
             dgv_Grades.Size = new Size(854, 364);
             dgv_Grades.TabIndex = 0;
+            dgv_Grades.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dgv_Grades.MultiSelect = false;
+            dgv_Grades.AllowUserToAddRows = false;
             // 
             // btn_grades
             // 
@@ -91,7 +96,31 @@
             btn_Edit.TabIndex = 1;
             btn_Edit.Text = "Edit";
             btn_Edit.UseVisualStyleBackColor = false;
-            btn_Edit.Click += btn_create_Click;
+            btn_Edit.Click += btn_Edit_Click;
+            // 
+            // btn_show
+            // 
+            btn_show.BackColor = SystemColors.InactiveCaption;
+            btn_show.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            btn_show.Location = new Point(152, 105);
+            btn_show.Name = "btn_show";
+            btn_show.Size = new Size(120, 42);
+            btn_show.TabIndex = 3;
+            btn_show.Text = "Show";
+            btn_show.UseVisualStyleBackColor = false;
+            btn_show.Click += btn_show_Click;
+            // 
+            // btn_delete
+            // 
+            btn_delete.BackColor = SystemColors.InactiveCaption;
+            btn_delete.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            btn_delete.Location = new Point(596, 105);
+            btn_delete.Name = "btn_delete";
+            btn_delete.Size = new Size(120, 42);
+            btn_delete.TabIndex = 4;
+            btn_delete.Text = "Delete";
+            btn_delete.UseVisualStyleBackColor = false;
+            btn_delete.Click += btn_delete_Click;
             // 
             // Frmindex
             // 
@@ -99,12 +128,15 @@
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(892, 559);
             Controls.Add(lbl_Grade);
+            Controls.Add(btn_delete);
+            Controls.Add(btn_show);
             Controls.Add(btn_Edit);
             Controls.Add(btn_create);
             Controls.Add(btn_grades);
             Controls.Add(dgv_Grades);
             Name = "Frmindex";
             Text = "Frmindex";
+            Load += Frmindex_Load;
             ((System.ComponentModel.ISupportInitialize)dgv_Grades).EndInit();
             ResumeLayout(false);
         }
@@ -116,5 +148,7 @@
         private Label lbl_Grade;
         private Button btn_create;
         private Button btn_Edit;
+        private Button btn_show;
+        private Button btn_delete;
     }
 }

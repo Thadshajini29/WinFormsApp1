@@ -1,6 +1,6 @@
 ﻿namespace WinFormsApp1.Grade_CRUD
 {
-    partial class FrmEditStudent
+    partial class FrmEditGrade
     {
         /// <summary>
         /// Required designer variable.
@@ -38,6 +38,7 @@
             lbl_gradegroup = new Label();
             lbl_gradeName = new Label();
             lbl_gradecreate = new Label();
+            colorDialog1 = new ColorDialog();
             SuspendLayout();
             // 
             // btn_update
@@ -48,6 +49,7 @@
             btn_update.TabIndex = 14;
             btn_update.Text = "Update";
             btn_update.UseVisualStyleBackColor = true;
+            btn_update.Click += btn_update_Click;
             // 
             // btn_colour
             // 
@@ -57,6 +59,7 @@
             btn_colour.TabIndex = 15;
             btn_colour.Text = "Choose Colour";
             btn_colour.UseVisualStyleBackColor = true;
+            btn_colour.Click += btn_colour_Click;
             // 
             // txt_gradeorder
             // 
@@ -124,10 +127,10 @@
             lbl_gradecreate.Name = "lbl_gradecreate";
             lbl_gradecreate.Size = new Size(424, 38);
             lbl_gradecreate.TabIndex = 16;
-            lbl_gradecreate.Text = "Grade Create";
+            lbl_gradecreate.Text = "Edit Grade";
             lbl_gradecreate.TextAlign = ContentAlignment.TopCenter;
             // 
-            // FrmEditStudent
+            // FrmEditGrade
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
@@ -142,8 +145,9 @@
             Controls.Add(lbl_gradegroup);
             Controls.Add(lbl_gradeName);
             Controls.Add(lbl_gradecreate);
-            Name = "FrmEditStudent";
-            Text = "FrmEditStudent";
+            Name = "FrmEditGrade";
+            Text = "Edit Grade";
+            Load += FrmEditGrade_Load;
             ResumeLayout(false);
             PerformLayout();
         }
@@ -160,5 +164,6 @@
         private Label lbl_gradegroup;
         private Label lbl_gradeName;
         private Label lbl_gradecreate;
+        private ColorDialog colorDialog1;
     }
 }

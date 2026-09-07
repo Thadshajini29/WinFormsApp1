@@ -12,6 +12,7 @@ namespace WinFormsApp1.Grade_CRUD
     public partial class FrmCreateGrade : Form
     {
         string gradeColour = "";
+        public bool GradeSaved = false;
 
         public FrmCreateGrade()
         {
@@ -77,8 +78,15 @@ namespace WinFormsApp1.Grade_CRUD
                 cmd.Parameters.AddWithValue("@grade_order", gradeOrder);
                 cmd.Parameters.AddWithValue("@colour", gradeColour);
 
-                cmd.ExecuteNonQuery();
+                int rowsAffected = cmd.ExecuteNonQuery();
 
+                if (rowsAffected == 0)
+                {
+                    MessageBox.Show("Grade was not saved.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+
+                GradeSaved = true;
                 MessageBox.Show("Grade created successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 this.Close();
             }
