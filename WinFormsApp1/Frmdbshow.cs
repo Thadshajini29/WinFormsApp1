@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Configuration;
 using System.Data;
 using System.Drawing;
 using System.Text;
@@ -12,6 +13,7 @@ namespace WinFormsApp1
     public partial class Frmdbshow : Form
     {
         string studentId;
+        string connString = ConfigurationManager.ConnectionStrings["MyDbConnection"]?.ConnectionString ?? string.Empty;
         public Frmdbshow(string studentId)
         {
             InitializeComponent();
@@ -23,9 +25,8 @@ namespace WinFormsApp1
             //txt_fname.Text = studentId;
 
 
-
-            string connectionString = "Server=localhost;Database=school;Uid=root;Pwd=root;";
-            MySqlConnection conn = new MySqlConnection(connectionString);
+            //string connectionString = "Server=localhost;Database=school;Uid=root;Pwd=root;Port=3306";
+            MySqlConnection conn = new MySqlConnection(connString);
 
             try
             {
@@ -67,7 +68,8 @@ namespace WinFormsApp1
 
 
                 //*********************Load Student Data into Form Controls
-                MySqlCommand cmd = new MySqlCommand($"select * from students where id={this.studentId}", conn);
+                MySqlCommand cmd = new MySqlCommand("SELECT * FROM students WHERE id = @id", conn);
+                cmd.Parameters.AddWithValue("@id", studentId);
 
                 MySqlDataAdapter da = new MySqlDataAdapter(cmd);
                 DataTable dt = new DataTable();

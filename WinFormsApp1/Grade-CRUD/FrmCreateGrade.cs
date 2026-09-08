@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Configuration;
 using System.Data;
 using System.Drawing;
 using System.Text;
@@ -12,6 +13,7 @@ namespace WinFormsApp1.Grade_CRUD
     public partial class FrmCreateGrade : Form
     {
         string gradeColour = "";
+        string connString = ConfigurationManager.ConnectionStrings["MyDbConnection"]?.ConnectionString ?? string.Empty;
         public bool GradeSaved = false;
 
         public FrmCreateGrade()
@@ -51,8 +53,8 @@ namespace WinFormsApp1.Grade_CRUD
                 return;
             }
 
-            string connectionString = "Server=localhost;Database=school;Uid=root;Pwd=root;";
-            MySqlConnection conn = new MySqlConnection(connectionString);
+            //string connectionString = "Server=localhost;Database=school;Uid=root;Pwd=root;Port=3306";
+            MySqlConnection conn = new MySqlConnection(connString);
 
             try
             {

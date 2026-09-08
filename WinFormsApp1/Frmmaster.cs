@@ -5,6 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
+using WinFormsApp1.Grade_CRUD;
 
 namespace WinFormsApp1
 {
@@ -65,7 +66,14 @@ namespace WinFormsApp1
 
         private void btn_edit_Click(object sender, EventArgs e)
         {
-            
+
+        }
+
+        private void btnGrade_Click(object sender, EventArgs e)
+        {
+            Frmindex frmindex = new Frmindex();
+            frmindex.Show();
+            this.Hide();
         }
     }
 }

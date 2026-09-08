@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Configuration;
 using System.Data;
 using System.Drawing;
 using System.Text;
@@ -13,6 +14,7 @@ namespace WinFormsApp1.Grade_CRUD
     {
         string gradeId;
         string gradeColour = "";
+        string connString = ConfigurationManager.ConnectionStrings["MyDbConnection"]?.ConnectionString ?? string.Empty;
 
         public FrmEditGrade(string id)
         {
@@ -22,37 +24,32 @@ namespace WinFormsApp1.Grade_CRUD
 
         private void FrmEditGrade_Load(object sender, EventArgs e)
         {
-            string connectionString = "Server=localhost;Database=school;Uid=root;Pwd=root;";
-            MySqlConnection conn = new MySqlConnection(connectionString);
+            MySqlConnection conn = new MySqlConnection(connString);
 
             try
             {
                 conn.Open();
                 MySqlCommand cmd = new MySqlCommand("SELECT * FROM grades WHERE id = @id", conn);
                 cmd.Parameters.AddWithValue("@id", gradeId);
-                MySqlDataReader reader = cmd.ExecuteReader();
 
-                if (reader.Read())
-                {
-                    txt_gradeName.Text = reader["grade_name"].ToString();
-                    txt_gradegroup.Text = reader["grade_group"].ToString();
-                    txt_gradeorder.Text = reader["grade_order"].ToString();
-                    gradeColour = reader["colour"].ToString() ?? "";
+                MySqlDataAdapter da = new MySqlDataAdapter(cmd);
+                DataTable dt = new DataTable();
 
-                    if (gradeColour != "")
-                    {
-                        btn_colour.BackColor = ColorTranslator.FromHtml(gradeColour);
-                    }
-                }
-                else
-                {
-                    MessageBox.Show("Grade not found.");
-                    Close();
-                }
+                da.Fill(dt);
+
+                DataRow dr = dt.Rows[0];
+
+                txt_gradeName.Text = dr["grade_name"].ToString();
+                txt_gradegroup.Text = dr["grade_group"].ToString();
+                txt_gradeorder.Text = dr["grade_order"].ToString();
+                btn_colour.Text = dr["colour"].ToString();
+                btn_colour.BackColor = ColorTranslator.FromHtml(dr["colour"].ToString());
+                gradeColour = dr["colour"].ToString() ?? "";
+
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error loading grade: " + ex.Message);
+                MessageBox.Show(ex.Message.ToString());
             }
             finally
             {
@@ -89,8 +86,8 @@ namespace WinFormsApp1.Grade_CRUD
                 return;
             }
 
-            string connectionString = "Server=localhost;Database=school;Uid=root;Pwd=root;";
-            MySqlConnection conn = new MySqlConnection(connectionString);
+            //string connectionString = "Server=localhost;Database=school;Uid=root;Pwd=root;Port=3306";
+            MySqlConnection conn = new MySqlConnection(connString);
 
             try
             {

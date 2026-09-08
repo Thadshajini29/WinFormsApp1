@@ -1,16 +1,17 @@
-﻿using System;
+﻿using MySql.Data.MySqlClient;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Configuration;
 using System.Data;
 using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
-using MySql.Data.MySqlClient;
-
 namespace WinFormsApp1.Grade_CRUD
 {
     public partial class Frmindex : Form
     {
+        string connString = ConfigurationManager.ConnectionStrings["MyDbConnection"]?.ConnectionString ?? string.Empty;
         public Frmindex()
         {
             InitializeComponent();
@@ -39,8 +40,8 @@ namespace WinFormsApp1.Grade_CRUD
 
         private void LoadGrades()
         {
-            string connectionString = "Server=localhost;Database=school;Uid=root;Pwd=root;";
-            MySqlConnection conn = new MySqlConnection(connectionString);
+            //string connectionString = "Server=localhost;Database=school;Uid=root;Pwd=root;Port=3306";
+            MySqlConnection conn = new MySqlConnection(connString);
 
             try
             {
@@ -80,7 +81,8 @@ namespace WinFormsApp1.Grade_CRUD
             string gradeOrder = selectedRow.Cells["grade_order"].Value?.ToString() ;
             string colour = selectedRow.Cells["colour"].Value?.ToString();
 
-            FrmShow form = new FrmShow(gradeName, gradeGroup, gradeOrder, colour);
+            string id = selectedRow.Cells["id"].Value.ToString() ?? "";
+            FrmShow form = new FrmShow(id);
             form.ShowDialog();
         }
 
@@ -119,8 +121,7 @@ namespace WinFormsApp1.Grade_CRUD
                 return;
             }
 
-            string connectionString = "Server=localhost;Database=school;Uid=root;Pwd=root;";
-            MySqlConnection conn = new MySqlConnection(connectionString);
+            MySqlConnection conn = new MySqlConnection(connString);
 
             try
             {

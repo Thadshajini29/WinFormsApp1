@@ -34,7 +34,7 @@
             btn_combobox = new Button();
             btn_filldata = new Button();
             btn_connect = new Button();
-            btn_edit = new Button();
+            btnGrade = new Button();
             SuspendLayout();
             // 
             // lbl_master
@@ -109,26 +109,26 @@
             btn_connect.UseVisualStyleBackColor = false;
             btn_connect.Click += btn_connect_Click;
             // 
-            // btn_edit
+            // btnGrade
             // 
-            btn_edit.BackColor = SystemColors.ControlDark;
-            btn_edit.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            btn_edit.Location = new Point(207, 243);
-            btn_edit.Name = "btn_edit";
-            btn_edit.Size = new Size(168, 51);
-            btn_edit.TabIndex = 1;
-            btn_edit.Text = "Edit";
-            btn_edit.UseVisualStyleBackColor = false;
-            btn_edit.Click += btn_edit_Click;
+            btnGrade.BackColor = SystemColors.ControlDark;
+            btnGrade.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            btnGrade.Location = new Point(207, 243);
+            btnGrade.Name = "btnGrade";
+            btnGrade.Size = new Size(168, 51);
+            btnGrade.TabIndex = 1;
+            btnGrade.Text = "Grade-CURD";
+            btnGrade.UseVisualStyleBackColor = false;
+            btnGrade.Click += btnGrade_Click;
             // 
             // Frmmaster
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(408, 341);
+            ClientSize = new Size(408, 408);
             Controls.Add(btn_calculate);
-            Controls.Add(btn_edit);
             Controls.Add(btn_filldata);
+            Controls.Add(btnGrade);
             Controls.Add(btn_connect);
             Controls.Add(btn_combobox);
             Controls.Add(btnfullname);
@@ -147,6 +147,6 @@
         private Button btn_filldata;
         private Button btn_connect;
         private Button btn_dbshow;
-        private Button btn_edit;
+        private Button btnGrade;
     }
 }

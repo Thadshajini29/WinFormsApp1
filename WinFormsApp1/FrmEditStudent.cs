@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Configuration;
 using System.Data;
 using System.Drawing;
 using System.Text;
@@ -13,6 +14,7 @@ namespace WinFormsApp1
     public partial class FrmEditStudent : Form
     {
         private string studentId;
+        string connString = ConfigurationManager.ConnectionStrings["MyDbConnection"]?.ConnectionString ?? string.Empty;
 
         public FrmEditStudent(string id)
         {
@@ -23,9 +25,8 @@ namespace WinFormsApp1
         private void FrmEditStudent_Load(object sender, EventArgs e)
         {
 
-
-            string connectionString = "Server=localhost;Database=school;Uid=root;Pwd=root;";
-            MySqlConnection conn = new MySqlConnection(connectionString);
+            //string connectionString = "Server=localhost;Database=school;Uid=root;Pwd=root;Port=3306";
+            MySqlConnection conn = new MySqlConnection(connString);
 
             try
             {
@@ -55,7 +56,8 @@ namespace WinFormsApp1
                 //cmb_familyid.DisplayMember = "mobile_number";
                 //cmb_familyid.ValueMember = "id";
 
-                MySqlCommand cmd = new MySqlCommand($"SELECT * FROM students WHERE id = {this.studentId}", conn);
+                MySqlCommand cmd = new MySqlCommand("SELECT * FROM students WHERE id = @id", conn);
+                cmd.Parameters.AddWithValue("@id", studentId);
 
                 MySqlDataAdapter da = new MySqlDataAdapter(cmd);
                 DataTable dt = new DataTable();
@@ -217,8 +219,7 @@ namespace WinFormsApp1
 
         private void btn_Update_Click(object sender, EventArgs e)
         {
-            string connectionString = "Server=localhost;Database=school;Uid=root;Pwd=root;";
-            MySqlConnection conn = new MySqlConnection(connectionString);
+            MySqlConnection conn = new MySqlConnection(connString);
 
             try
             {
