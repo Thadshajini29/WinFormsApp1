@@ -6,6 +6,7 @@ using System.Configuration;
 using System.Data;
 using System.Drawing;
 using System.Text;
+using WinFormsApp1.DAL;
 using System.Windows.Forms;
 
 namespace WinFormsApp1
@@ -43,28 +44,10 @@ namespace WinFormsApp1
 
         private void btn_AllStudents_Click(object sender, EventArgs e)
         {
-            MySqlConnection conn = new MySqlConnection(connString);
-
-            try
-            {
-                conn.Open();
-                MySqlCommand cmd = new MySqlCommand("SELECT * FROM students", conn);
-
-                MySqlDataAdapter da = new MySqlDataAdapter(cmd);
-                DataTable dt = new DataTable();
-                da.Fill(dt);
-                dgvStudents.DataSource = dt;
-            }
-            catch (MySqlException ex)
-            {
-                MessageBox.Show("Error occurred while fetching student data.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            finally
-            {
-                conn.Close();
-            }
+            StudentDal studentDal = new StudentDal();
+            DataTable dt = studentDal.GetAll();
+            dgvStudents.DataSource = dt;
         }
-
         private void btn_show_Click(object sender, EventArgs e)
         {
             if (dgvStudents.CurrentRow == null || !dgvStudents.Columns.Contains("id"))
@@ -340,17 +323,18 @@ namespace WinFormsApp1
 
         private void btn_dbshow_Click(object sender, EventArgs e)
         {
+            //GetByID();
             try
             {
-                string id = dgvStudents.CurrentRow.Cells["id"].Value.ToString();
+                string id = dgvStudents.CurrentRow.Cells["id"].Value?.ToString();
                 Frmdbshow f = new Frmdbshow(id);
                 f.ShowDialog();
             }
-
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message.ToString());
                 throw;
+
             }
 
         }
